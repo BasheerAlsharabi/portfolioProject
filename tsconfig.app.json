@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    /* Modules */
+    "module": "ESNext",
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] },
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "types": ["vite/client"],
+
+    /* Language and Environment */
+    "useDefineForClassFields": true,
+    "lib": [
+      "es2020",
+      "dom",
+      "dom.iterable"
+    ] /*  use this in case your project uses the DOM */,
+    "target": "es2022",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+
+    /* Base Options */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+
+    // this fixes the react router directory importing typing
+    "rootDirs": [".", "./.react-router/types"]
+
+    // "declaration": true /* if you are building for a library */
+  },
+  "include": [
+    "src",
+    "unimport.d.ts"
+    // ".react-router/types/**/*"
+    // "eslint.config.ts"
+  ],
+  "exclude": [".react-router/**"]
+}
