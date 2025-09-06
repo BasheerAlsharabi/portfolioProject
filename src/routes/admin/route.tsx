@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Login from "./Login";
 import HeroEditor from "./components/HeroEditor";
 import AboutEditor from "./components/AboutEditor";
 import ProjectsEditor from "./components/ProjectsEditor";
@@ -9,6 +10,17 @@ import ServicesEditor from "./components/ServicesEditor";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("hero");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("isAdmin") === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
 
   const tabs = [
     { id: "hero", name: "Hero Section", icon: "🏠" },
@@ -34,6 +46,10 @@ const AdminDashboard = () => {
         return <HeroEditor />;
     }
   };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
