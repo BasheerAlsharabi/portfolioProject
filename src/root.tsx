@@ -1,7 +1,6 @@
 import { type Route } from "../.react-router/types/src/+types/root";
 import { i18n } from "./config/i18n";
 import "../styles/index.scss";
-import "../styles/App.css";
 import "virtual:uno.css";
 import { I18nProvider } from "@lingui/react";
 import { PortfolioProvider } from "./contexts/PortfolioContext";

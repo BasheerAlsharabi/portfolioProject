@@ -14,10 +14,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-black/50 backdrop-blur-sm border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               {portfolioData.hero.firstName} {portfolioData.hero.lastName}
             </h3>
@@ -25,7 +25,7 @@ const Footer = () => {
               Full-stack developer passionate about creating exceptional digital
               experiences through clean code and innovative design.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex gap-2">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -41,9 +41,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
@@ -63,9 +63,9 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
-            <div className="space-y-2">
+            <div className="space-y-1">
               <p className="text-gray-400">
                 {portfolioData.contact.contactInfo.email}
               </p>
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/10 mt-8 pt-8">
+        <div className="border-t border-white/10 mt-4 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
               © {currentYear} {portfolioData.hero.firstName}{" "}
