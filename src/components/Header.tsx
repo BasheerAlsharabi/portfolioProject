@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
+import { locale } from "../config/i18n";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lang, setLang] = useState(localStorage.getItem("locale") || "en");
   const location = useLocation();
 
   const links = [
@@ -31,6 +33,12 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleLangChange = () => {
+    const newLang = lang === "en" ? "ar" : "en";
+    locale.toggleLocales();
+    setLang(newLang);
+  };
+
   const isAdminPage = location.pathname.startsWith("/admin");
 
   return (
@@ -52,8 +60,8 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="ml-6 flex items-baseline space-x-8">
               {!isAdminPage &&
                 links.map((link) => (
                   <button
@@ -84,10 +92,17 @@ const Header = () => {
                 </Link>
               )}
             </div>
+            {/* Language Switch Button */}
+            <button
+              onClick={handleLangChange}
+              className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all"
+            >
+              {lang === "en" ? "العربية" : "English"}
+            </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-300 hover:text-purple-400 focus:outline-none focus:text-purple-400 transition-colors duration-300"
@@ -151,6 +166,13 @@ const Header = () => {
                   Admin
                 </Link>
               )}
+              {/* Language Switch Button (Mobile) */}
+              <button
+                onClick={handleLangChange}
+                className="w-full mt-2 px-3 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all"
+              >
+                {lang === "en" ? "العربية" : "English"}
+              </button>
             </div>
           </div>
         )}

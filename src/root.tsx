@@ -80,8 +80,12 @@ export function HydrateFallback() {
 }
 
 export function Layout({ children }: { readonly children: React.ReactNode }) {
+  // You can get the language from i18n or use a prop/context as needed
+  const lang = i18n.locale || "en";
+  const dir = lang === "ar" ? "rtl" : "ltr";
+
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir}>
       <head>
         <meta charSet="utf8" />
         {/* <link rel="icon" type="image/svg+xml" href="/vite.svg" /> */}
