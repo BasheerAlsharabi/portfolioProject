@@ -60,7 +60,7 @@ const Contact = () => {
 
             {/* Contact Details */}
             <div className="space-y-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">📧</span>
                 </div>
@@ -72,7 +72,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">📱</span>
                 </div>
@@ -84,7 +84,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white text-lg">📍</span>
                 </div>
@@ -102,7 +102,7 @@ const Contact = () => {
               <h4 className="text-lg font-semibold text-white mb-2">
                 Follow Me
               </h4>
-              <div className="flex space-x-3">
+              <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
